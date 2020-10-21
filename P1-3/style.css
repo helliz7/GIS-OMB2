@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+    background-image: url(assets/Hintergrund/bg.png);
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+        font-weight: bold;
+    }
+
+
+a {
+    color: black;
+    text-decoration: none;
+}
+#Link1{
+    background-color: lightblue;
+    padding: 8px 8px 8px 8px;
+    
+}
+#Link2{
+    background-color: lightblue;
+    padding: 8px 8px 8px 8px;
+}
+#Buch{
+    background-color: lightblue;
+    padding: 8px 8px 8px 8px;
+}

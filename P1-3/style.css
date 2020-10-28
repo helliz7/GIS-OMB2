@@ -1,27 +1,150 @@
-body{
+body {
     text-align: center;
-    background-image: url(assets/Hintergrund/bg.png);
+    background-image: url("assets/Hintergrund/bg.png");
     font-family: Arial, Helvetica, sans-serif;
+    max-width: 800px;
+    margin: auto;
 }
-header{
-        font-weight: bold;
-    }
-
 
 a {
-    color: black;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: coral;
+    padding: 5px 5px 5px 5px;
+}
+
+.internav * {
+    margin-right: 5px;
+}
+
+#icon-farbe {
+    max-width: 0px;
+    width: 0px;
+    opacity: 0%;
+}
+
+#nav-sec {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+#nav-sec:hover #icon {
+    opacity: 0;
+    width: 0;
+}
+
+#icon {
+    padding: 0px;
+    max-width: 50px;
+    opacity: 80%;
+}
+
+#icon-farbe-a {
+    padding: 0px;
+    width: 0;
+    background: none;
+}
+
+.linknobackground {
+    background: none;
+}
+
+#nav-sec:hover #icon-farbe {
+    opacity: 100%;
+    width: 53px;
+    max-width: 50px;
+    padding-right: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.kontaktelement {
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+    padding: 5px 5px 5px 5px;
+    background-color: bisque;
+    color: #333;
+}
+
+.kontaktelement::placeholder {
+    color: #333;
+    opacity: 1;
+}
+
+.kontaktelement::-webkit-input-placeholder {
+    color: #333;
+}
+
+.kontaktelement:-ms-input-placeholder {
+    color: #333;
+}
+
+.kontaktflex {
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+}
+
+#navbar {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    background-color: burlywood;
+}
+
+#navbar+h1 {
+    padding-top: 35px;
+}
+
+#navbar a {
+    float: right;
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px;
     text-decoration: none;
 }
-#Link1{
-    background-color: lightblue;
-    padding: 8px 8px 8px 8px;
-    
+
+li {
+    display: inline;
 }
-#Link2{
-    background-color: lightblue;
-    padding: 8px 8px 8px 8px;
+
+li a {
+    display: block;
+    padding: 8px;
+    background-color: #deb887;
 }
-#Buch{
-    background-color: lightblue;
-    padding: 8px 8px 8px 8px;
+
+li a:hover {
+    background-color: coral;
+}
+
+header {
+    font-weight: bold;
+}
+
+.bilder {
+    width: 520px;
+}
+
+.videos {
+    width: 520px;
+}
+
+#aktuell {
+    background-color: bisque;
+    color: grey;
+}
+
+#aktuell:hover {
+    background-color: coral;
 }

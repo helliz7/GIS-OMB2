@@ -1,24 +1,55 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="utf-8">
-        <title>Kontakt</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <li><a id="aktuell" href="Kontakt.html">Kontakt</a></li>
+            <li><a href="Steckbrief.html">Über mich</a></li>
+            <li><a href="index.html">Portfolio</a></li>
+        </nav>
         <h1>Kontakt</h1>
+    </header>
+
+    <main>
         <h3>So können Sie mich kontaktieren: </h3>
-        <p> Per E-Mail: <a href="mailto:helen.ziegler@hs-furtwangen.de">helen.ziegler@hs-furtwangen.de</a></p>
+        <p> Per E-Mail: <a class="linknobackground"
+                href="mailto:helen.ziegler@hs-furtwangen.de">helen.ziegler@hs-furtwangen.de</a></p>
+        <div class="kontaktflex">
+            <span>
+                <p><b>Über Instagram </b></p>
+                <a class="linknobackground" href="https://www.instagram.com/helen.zglr/"><img src="assets/instagram.png"
+                        alt="Instagram"></a>
+            </span>
+            <span>
+                <form>
+                    <p><b>Kontaktformular</b></p>
+                    <input class="kontaktelement" type="text" placeholder="Name" required>
+                    <input class="kontaktelement" type="text" placeholder="Vorname">
+                    <input class="kontaktelement" type="text" placeholder="E-Mail" required>
+                    <input class="kontaktelement" type="text" placeholder="Ihre Nachricht" required>
+
+                    <button class="kontaktelement">Absenden</button>
+                </form>
+            </span>
+        </div>
         <br>
-        <p><b>Über Instagram: </b></p>
-        <a href="https://www.instagram.com/helen.zglr/"><img src="assets/instagram.png" alt="Instagram"></a>
         <br>
-        <br>
-    <div id="Div">
-        <a href="index.html" id="Link1">Mein Portfolio</a>
-        <br>
-        <br>
-        <a href="Steckbrief.html" id="Link1">Über mich</a>
-    </div>
-    </body>
+    </main>
+
+    <footer>
+        <div id="nav-sec">
+            <img id="icon" src="assets/icon insta.png" alt="Instagram">
+            <a id="icon-farbe-a" href="https://www.instagram.com/helen.zglr/"><img id="icon-farbe"
+                    src="assets/icon insta farbe.png" alt="Instagram"></a>
+        </div>
+    </footer>
+</body>
+
 </html>

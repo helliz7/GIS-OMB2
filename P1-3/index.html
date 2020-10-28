@@ -6,60 +6,71 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
+        <nav id="navbar">
+            <li><a href="Kontakt.html">Kontakt</a></li>
+            <li><a href="Steckbrief.html">Über mich</a></li>
+            <li><a id="aktuell" href="index.html">Portfolio</a></li>
+        </nav>
         <h1>Mein Portfolio</h1>
     </header>
-    
-    <ol>
-        <li><a href="#meineBilder">Meine Bilder</a></li> <br>
-        <li><a href="#meineVideos">Meine Videos</a></li> <br>
-        <li><a href="#buchprojekte">Angefangene Buchprojekte</a></li> <br>
-    </ol>
-    
 
-    <h2 id=meineBilder> Meine Bilder</h2>
-    <p>Auf Reisen habe ich schon viele Orte gesehen und auch fotografiert.</p>
-    <p> Hier habe ich Ihnen eine kleine Auswahl zusammengestellt.</p>
-    <img src="assets/uluru.jpg" alt="Uluru">
-    <p>Der Uluru im Red Centre, Australien</p> 
-
-    <img src="assets/IMG_1315.JPG" alt="Mailands Kanäle">
-    <p>Die Kanäle <i>Mailand</i>s</p>
-
-    <img src="assets/Australian war memorial .JPG" alt="Das Australian War Memorial">
-    <p>Im Australian War Memorial in Canberra stehen alle Namen der Australischen Soldaten die in jeglichen Kriegen gestorben sind.</p>
+    <main>
+        <nav>
+            <ol class="internnav">
+                <a href="#meineBilder">Meine Bilder</a>
+                <a href="#meineVideos">Meine Videos</a>
+                <a href="#buchprojekte">Buchprojekte</a>
+            </ol>
+        </nav>
 
 
-    <h2 id="meineVideos">Meine Videos</h2>
-    <p>Wann immer ich unterwegs bin filme ich besondere Momente. Aus genau so einem Moment ist dieses Video entstanden:</p>
-    <video width="520" height="440" controls>
-        <source src="assets/NYESydney2.mp4">
-    </video>
+        <h2 id=meineBilder> Meine Bilder</h2>
+        <p>Auf Reisen habe ich schon viele Orte gesehen und auch fotografiert.</p>
+        <p> Hier habe ich Ihnen eine kleine Auswahl zusammengestellt.</p>
+        <img src="assets/uluru.jpg" alt="Uluru" class="bilder">
+        <p>Der Uluru im Red Centre, Australien</p>
+        <p>Der Sonnenuntergang am Uluru bildet eine wunderschöne Kulisse und setzt die orangene Farbe der Gegeng in
+            Szene.
+        </p>
 
-    <h2 id="buchprojekte">Angefangene 'Buchprojekte'</h2>
-    <h3>In my mind:</h3> 
-    <p>Ich habe mehrere Kapitel einer Geschichte verfasst, die mir nicht mehr aus dem Kopf ging. <br>
+        <img src="assets/IMG_1315.JPG" alt="Mailands Kanäle" class="bilder">
+        <p>Die Kanäle <i>Mailand</i>s</p>
 
-        <br> Im ersten Kapitel wird die Protagonistin vor 
-        Herausforderungen gestellt, die weitreichende Folgen nach sich ziehen werden.</p>
+        <img src="assets/Australian war memorial .JPG" alt="Das Australian War Memorial" class="bilder">
+        <p>Im Australian War Memorial in Canberra stehen alle Namen der Australischen Soldaten die in jeglichen Kriegen
+            gestorben sind.</p>
+
+
+        <h2 id="meineVideos">Meine Videos</h2>
+        <p>Wann immer ich unterwegs bin filme ich besondere Momente. Aus genau so einem Moment ist dieses Video
+            entstanden:
+        </p>
+        <video class="videos" controls>
+            <source src="assets/NYESydney2.mp4">
+        </video>
+
+        <h2 id="buchprojekte">Angefangene 'Buchprojekte'</h2>
+        <h3>In my mind:</h3>
+        <p>Ich habe mehrere Kapitel einer Geschichte verfasst, die mir nicht mehr aus dem Kopf ging. <br>
+            <br> Im ersten Kapitel wird die Protagonistin vor
+            Herausforderungen gestellt, die weitreichende Folgen nach sich ziehen werden.</p>
         <p> Lesen Sie hier das erste Kapitel von <i>In my mind</i>:</p>
-        <a href="assets/Ziegler_In My Mind 1.pdf" id="Buch">Hier</a>
-    <br>
-    <br>
-    <br>
+        <a href="assets/Ziegler_In My Mind 1.pdf" id="Buch">In my mind</a>
+        <br>
+        <br>
 
-    <a href="Steckbrief.html" id="Link1">Über mich</a>
-    <br>
-    <br>
-    <a href="Kontakt.html" id="Link2">Kontakt</a>
-<br>
-<br>
+    </main>
     <footer>
-        Impressum
-
-        <a href="Kontakt.html">Kontakt</a>
+        <div id="nav-sec">
+            <img id="icon" src="assets/icon insta.png" alt="Instagram">
+            <a id="icon-farbe-a" href="https://www.instagram.com/helen.zglr/"><img id="icon-farbe"
+                    src="assets/icon insta farbe.png" alt="Instagram"></a>
+        </div>
     </footer>
 
 </body>
+
 </html>

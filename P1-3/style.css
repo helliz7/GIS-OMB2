@@ -14,10 +14,6 @@ a {
     padding: 5px 5px 5px 5px;
 }
 
-.internav * {
-    margin-right: 5px;
-}
-
 #icon-farbe {
     max-width: 0px;
     width: 0px;
@@ -114,12 +110,13 @@ ul {
     text-decoration: none;
 }
 
+
+
 li {
     display: inline;
 }
 
 li a {
-    display: block;
     padding: 8px;
     background-color: #deb887;
 }
@@ -147,4 +144,8 @@ header {
 
 #aktuell:hover {
     background-color: coral;
+}
+
+.internnav * {
+    background-color: bisque;
 }

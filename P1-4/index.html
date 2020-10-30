@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!--Navigation über alle Seiten-->
+        <div id="menu">
+            <input type="checkbox" id="hamburg">
+            <label for="hamburg" class="hamburg">
+               <span class="line"></span>
+               <span class="line"></span>
+               <span class="line"></span>
+            </label>
+            
+            <nav class="topmenu">
+               <ul>
+                <li><a id="aktuell" href="index.html">Portfolio</a></li>
+                <li><a href="Steckbrief.html">Über mich</a></li>
+                <li><a href="Kontakt.html">Kontakt</a></li>
+               </ul>
+            </nav>
+         </div>
+         <h1>Mein Portfolio</h1>
+        
+    </header>
+
+    <main>
+        <!--Navigation auf Portfolio Seite-->
+        <nav>
+            <ol class="internnav">
+                <li><a href="#meineBilder">Meine Bilder</a></li>
+                <li><a href="#meineVideos">Meine Videos</a></li>
+                <li><a href="#buchprojekte">Buchprojekte</a></li>
+            </ol>
+        </nav>
+
+        <!--Bilder-->
+        <h2 id=meineBilder> Meine Bilder</h2>
+        <p>Auf Reisen habe ich schon viele Orte gesehen und auch fotografiert.</p>
+        <p> Hier habe ich Ihnen eine kleine Auswahl zusammengestellt.</p>
+        <img src="assets/uluru.jpg" alt="Uluru" class="bilder">
+        <p>Der Uluru im Red Centre, Australien</p>
+        <p>Der Sonnenuntergang am Uluru bildet eine wunderschöne Kulisse und setzt die orangene Farbe der Gegend in
+            Szene.
+        </p>
+
+        <img src="assets/IMG_1315.JPG" alt="Mailands Kanäle" class="bilder">
+        <p>Die Kanäle <i>Mailand</i>s</p>
+
+        <img src="assets/Australian_war_memorial.JPG" alt="Das Australian War Memorial" class="bilder">
+        <p>Im Australian War Memorial in Canberra stehen alle Namen der Australischen Soldaten die in jeglichen Kriegen
+            gestorben sind.</p>
+
+        <!-- Videos-->
+        <h2 id="meineVideos">Meine Videos</h2>
+        <p>Wann immer ich unterwegs bin filme ich besondere Momente. Aus genau so einem Moment ist dieses Video
+            entstanden:
+        </p>
+        <video class="videos" controls>
+            <source src="assets/NYESydney2.mp4">
+        </video>
+
+        <!-- Buchprojekte -->
+        <h2 id="buchprojekte">Angefangene 'Buchprojekte'</h2>
+        <h3>In my mind:</h3>
+        <p>Ich habe mehrere Kapitel einer Geschichte verfasst, die mir nicht mehr aus dem Kopf ging. <br>
+            <br> Im ersten Kapitel wird die Protagonistin vor
+            Herausforderungen gestellt, die weitreichende Folgen nach sich ziehen werden.</p>
+        <p> Lesen Sie hier das erste Kapitel von <i>In my mind</i>:</p>
+        <a href="assets/Ziegler_In_My_Mind_1.pdf" id="Buch">In my mind</a>
+        <br>
+        <br>
+
+    </main>
+    <footer>
+        <!--Instagram Icon Hover-->
+        <div id="nav-sec">
+            <img id="icon" src="assets/icon_insta.png" alt="Instagram">
+            <a id="icon-farbe-a" href="https://www.instagram.com/helen.zglr/"><img id="icon-farbe"
+                    src="assets/icon_insta_farbe.png" alt="Instagram"></a>
+        </div>
+    </footer>
+
+</body>
+</html>

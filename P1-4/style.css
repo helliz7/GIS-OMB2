@@ -1,0 +1,375 @@
+body {
+    text-align: center;
+    background-image: url("assets/Hintergrund/bg.png");
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+}
+
+#menu {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    background-color: burlywood;
+}
+
+nav.topmenu {
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+label.hamburg {
+    display: block;
+    background: burlywood;
+    width: 70px;
+    height: 50px;
+    position: relative;
+    margin-left: auto;
+    border-radius: 10px;
+}
+
+input#hamburg {
+    display: none
+}
+
+.line {
+    position: absolute;
+    left: 10px;
+    height: 5px;
+    width: 53px;
+    background: #fff;
+    border-radius: 3px;
+    display: block;
+    transition: 0.5s;
+    transform-origin: center;
+}
+
+.line:nth-child(1) {
+    top: 12px;
+}
+
+.line:nth-child(2) {
+    top: 24px;
+}
+
+.line:nth-child(3) {
+    top: 36px;
+}
+
+#hamburg:checked+.hamburg .line:nth-child(1) {
+    transform: translateY(12px) rotate(-45deg);
+}
+
+#hamburg:checked+.hamburg .line:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburg:checked+.hamburg .line:nth-child(3) {
+    transform: translateY(-12px) rotate(45deg);
+}
+
+#hamburg:checked+.hamburg+nav.topmenu {
+    max-height: 600px;
+}
+
+.topmenu li a {
+    display: block;
+    margin: auto;
+    border-radius: 3px;
+    right: 5px;
+}
+
+div+h1 {
+    margin-top: 60px;
+}
+
+p {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Einheitliche Links */
+
+a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: bisque;
+    padding: 5px 5px 5px 5px;
+}
+
+/* Insta Icon buntes */
+
+#icon-farbe {
+    max-width: 0px;
+    width: 0px;
+    opacity: 0%;
+}
+
+/* zweite Navigation*/
+
+#nav-sec {
+    bottom: 10px;
+    right: 10px;
+}
+
+/*Instagram Hover */
+
+#icon {
+    padding: 0px;
+    max-width: 50px;
+    opacity: 80%;
+}
+
+#icon-farbe-a {
+    padding: 0px;
+    width: 0;
+    background: none;
+}
+
+.linknobackground {
+    background: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Kontaktformular */
+
+.kontaktelement {
+    display: block;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px 5px 5px 10px;
+    background-color: bisque;
+    color: #333;
+    width: 80%;
+}
+
+#nachricht {
+    line-height: 30px;
+}
+
+.kontaktelement::placeholder {
+    color: #333;
+    opacity: 1;
+}
+
+/* Das Kontaktformular in allen Browsern unterstützt wird */
+
+.kontaktelement::-webkit-input-placeholder {
+    color: #333;
+}
+
+.kontaktelement:-ms-input-placeholder {
+    color: #333;
+}
+
+.kontaktflex {
+    margin: auto;
+    justify-content: space-evenly;
+}
+
+li {
+    display: inline;
+}
+
+li a {
+    padding: 8px;
+    background-color: #deb887;
+}
+
+header {
+    font-weight: bold;
+}
+
+/* größe Bilder & Videos */
+
+.bilder {
+    width: 95%;
+}
+
+.videos {
+    width: 95%;
+}
+
+/* Aktuelle Seite hervorgehoben + hover*/
+
+#aktuell {
+    background-color: bisque;
+    color: #333;
+}
+
+/* Farbe der zweiten Navigation */
+
+.internnav * {
+    background-color: bisque;
+}
+
+/*externer Link zur HFU Seite */
+
+#hfu-link {
+    color: black;
+    font-weight: normal;
+    background: none;
+    text-decoration: underline;
+}
+
+/*Tablet*/
+
+@media screen and (min-width: 600px) {
+    body {
+        max-width: 800px;
+    }
+    #me-img {
+        float: left;
+        padding-right: 10px;
+    }
+    #nav-sec {
+        position: fixed;
+    }
+    .kontaktelement {
+        display: flex;
+        width: 300px;
+    }
+    .kontaktflex {
+        display: flex;
+        margin: auto;
+        justify-content: space-evenly;
+    }
+    .bilder {
+        width: 520px;
+    }
+    .videos {
+        width: 520px;
+    }
+    .internnav * {
+        background-color: bisque;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #icon-farbe {
+        max-width: 0px;
+        width: 0px;
+        opacity: 0%;
+    }
+    #nav-sec {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+    }
+    #nav-sec:hover #icon {
+        opacity: 0;
+        width: 0;
+    }
+    #icon {
+        padding: 0px;
+        max-width: 50px;
+        opacity: 80%;
+    }
+    #icon-farbe-a {
+        padding: 0px;
+        width: 0;
+        background: none;
+    }
+    .linknobackground {
+        background: none;
+    }
+    #nav-sec:hover #icon-farbe {
+        opacity: 100%;
+        width: 53px;
+        max-width: 50px;
+        padding-right: 5px;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .kontaktelement {
+        display: flex;
+        flex-direction: column;
+        margin: 8px;
+        padding: 5px 5px 5px 5px;
+        background-color: bisque;
+        color: #333;
+    }
+    .kontaktelement::placeholder {
+        color: #333;
+        opacity: 1;
+    }
+    .kontaktelement::-webkit-input-placeholder {
+        color: #333;
+    }
+    .kontaktelement:-ms-input-placeholder {
+        color: #333;
+    }
+    .kontaktflex {
+        display: flex;
+        margin: auto;
+        justify-content: space-evenly;
+    }
+    
+    li {
+        display: inline;
+    }
+    li a {
+        padding: 8px;
+        background-color: #deb887;
+    }
+    li a:hover {
+        background-color: coral;
+    }
+    header {
+        font-weight: bold;
+    }
+    .bilder {
+        width: 520px;
+    }
+    .videos {
+        width: 520px;
+    }
+    #aktuell {
+        background-color: bisque;
+        color: grey;
+    }
+    #aktuell:hover {
+        background-color: coral;
+    }
+    .internnav * {
+        background-color: bisque;
+    }
+
+    /*Main Navigation*/
+
+    .hamburg{
+        visibility: hidden;
+        max-width: 0px;
+        max-height: 0px;
+    }
+    
+    .topmenu {
+        display: inline;
+    }
+
+    .topmenu ul{
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .topmenu a {
+        float: right;
+        display: block;
+        color: #333;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+    }
+}

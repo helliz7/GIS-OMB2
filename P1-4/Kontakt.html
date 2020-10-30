@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kontakt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!--Navigation über alle Seiten-->
+        <div id="menu">
+            <input type="checkbox" id="hamburg">
+            <label for="hamburg" class="hamburg">
+               <span class="line"></span>
+               <span class="line"></span>
+               <span class="line"></span>
+            </label>
+            
+            <nav class="topmenu">
+               <ul>
+                <li><a  href="index.html">Portfolio</a></li>
+                <li><a href="Steckbrief.html">Über mich</a></li>
+                <li><a id="aktuell" href="Kontakt.html">Kontakt</a></li>
+               </ul>
+            </nav>
+         </div>
+        <h1>Kontakt</h1>
+    </header>
+
+    <main>
+        <!--E-Mail-->
+        <h3>So können Sie mich kontaktieren: </h3>
+        <p> Per E-Mail: <a class="linknobackground"
+                href="mailto:helen.ziegler@hs-furtwangen.de">helen.ziegler@hs-furtwangen.de</a></p>
+        <div class="kontaktflex">
+            <!--Instagram-->
+            <div>
+                <p><b>Über Instagram </b></p>
+                <a class="linknobackground" href="https://www.instagram.com/helen.zglr/"><img src="assets/instagram.png"
+                        alt="Instagram"></a>
+            </div>
+
+            <!--Kontaktformular-->
+            <form>
+                <p><b>Kontaktformular</b></p>
+                <input class="kontaktelement" type="text" placeholder="Name" required>
+                <input class="kontaktelement" type="text" placeholder="Vorname" required>
+                <input class="kontaktelement" type="text" placeholder="E-Mail" required>
+                <input class="kontaktelement" id="nachricht" type="text" placeholder="Ihre Nachricht" required>
+                <button class="kontaktelement">Absenden</button>
+            </form>
+
+        </div>
+        <br>
+        <br>
+    </main>
+
+    <footer>
+        <div id="nav-sec">
+            <img id="icon" src="assets/icon_insta.png" alt="Instagram">
+            <a id="icon-farbe-a" href="https://www.instagram.com/helen.zglr/"><img id="icon-farbe"
+                    src="assets/icon_insta_farbe.png" alt="Instagram"></a>
+        </div>
+    </footer>
+</body>
+
+</html>

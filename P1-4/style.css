@@ -338,7 +338,7 @@ header {
     }
     #aktuell {
         background-color: bisque;
-        color: grey;
+        color: #333;
     }
     #aktuell:hover {
         background-color: coral;

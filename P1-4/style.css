@@ -123,7 +123,7 @@ a {
     opacity: 80%;
 }
 
-#icon-farbe-a {
+.icon-farbe-a {
     padding: 0px;
     width: 0;
     background: none;
@@ -274,7 +274,7 @@ header {
         max-width: 50px;
         opacity: 80%;
     }
-    #icon-farbe-a {
+    .icon-farbe-a {
         padding: 0px;
         width: 0;
         background: none;

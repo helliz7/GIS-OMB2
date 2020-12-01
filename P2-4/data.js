@@ -25,8 +25,8 @@ var P2_4;
     createPicsFromJSON(createFullJSON());
     function createFullJSON() {
         let allBilder = { allTop: P2_4.allTop, allMiddle: P2_4.allMiddle, allBottom: P2_4.allBottom };
-        let JSONalle = JSON.stringify(allBilder);
-        return JSONalle;
+        let jsonAlle = JSON.stringify(allBilder);
+        return jsonAlle;
     }
     function createPicsFromJSON(jsonStr) {
         P2_4.allTop = [];

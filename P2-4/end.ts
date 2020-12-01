@@ -3,9 +3,8 @@ namespace P2_4 {
 
     function showContent(): void {
         console.log("Show endauswahl");
-        //TODO Error
-        // PRogramm lauft nicht weiter
-        getSelectedFromJSON(sessionStorage.getItem("selected"));
+        let t: string = sessionStorage.getItem("selected");
+        getSelectedFromJSON(t);
         console.log("selected: " + selected);
         let endauswahl: HTMLDivElement = <HTMLDivElement>document.getElementById("endauswahl");
         while (endauswahl.firstChild) {

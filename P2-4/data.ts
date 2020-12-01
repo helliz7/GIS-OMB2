@@ -27,8 +27,8 @@ namespace P2_4 {
 
     function createFullJSON(): string {
         let allBilder: AlleBilder = { allTop: allTop, allMiddle: allMiddle, allBottom: allBottom };
-        let JSONalle: string = JSON.stringify(allBilder);
-        return JSONalle;
+        let jsonAlle: string = JSON.stringify(allBilder);
+        return jsonAlle;
     }
 
     function createPicsFromJSON(jsonStr: string): void {

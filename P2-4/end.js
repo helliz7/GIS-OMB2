@@ -4,9 +4,8 @@ var P2_4;
     window.addEventListener("load", showContent);
     function showContent() {
         console.log("Show endauswahl");
-        //TODO Error
-        // PRogramm lauft nicht weiter
-        P2_4.getSelectedFromJSON(sessionStorage.getItem("selected"));
+        let t = sessionStorage.getItem("selected");
+        P2_4.getSelectedFromJSON(t);
         console.log("selected: " + P2_4.selected);
         let endauswahl = document.getElementById("endauswahl");
         while (endauswahl.firstChild) {

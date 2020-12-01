@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+}
+img {
+    width: 300px;
+    max-height: 400px;
+    border-right: 10px;
+}
+
+.selected {
+    border-radius: 5px;
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+}
+button {
+    position: static;
+    border-radius: 50px;
+}

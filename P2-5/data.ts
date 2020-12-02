@@ -6,11 +6,11 @@ namespace P2_5 {
     //     return jsonAlle;
     // }
 
-    function createPicsFromJSON(jsonStr: string): void {
+    function createPicsFromJSON(_jsonStr: string): void {
         allTop = [];
         allMiddle = [];
         allBottom = [];
-        let json: AlleBilder = JSON.parse(jsonStr);
+        let json: AlleBilder = JSON.parse(_jsonStr);
         Object.keys(json).forEach(key => {
             if (key == "allTop") {
                 allTop = json[key];

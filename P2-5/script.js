@@ -26,10 +26,10 @@ var P2_5;
             createContent(P2_5.allBottom);
         }
     }
-    function getSelectedFromJSON(jsonStr) {
-        console.log(jsonStr);
-        if (jsonStr != null) {
-            let json = JSON.parse(jsonStr);
+    function getSelectedFromJSON(_jsonStr) {
+        console.log(_jsonStr);
+        if (_jsonStr != null) {
+            let json = JSON.parse(_jsonStr);
             Object.keys(json).forEach(key => {
                 if (key == "top") {
                     let pic = json[key];
@@ -48,23 +48,23 @@ var P2_5;
         return P2_5.selected;
     }
     P2_5.getSelectedFromJSON = getSelectedFromJSON;
-    function selectImage(img, bild) {
-        if (bild.typ == keyTop) {
-            P2_5.selected.top = bild;
+    function selectImage(_img, _bild) {
+        if (_bild.typ == keyTop) {
+            P2_5.selected.top = _bild;
         }
-        else if (bild.typ == keyMiddle) {
-            P2_5.selected.middle = bild;
+        else if (_bild.typ == keyMiddle) {
+            P2_5.selected.middle = _bild;
         }
-        else if (bild.typ == keyBottom) {
-            P2_5.selected.bottom = bild;
+        else if (_bild.typ == keyBottom) {
+            P2_5.selected.bottom = _bild;
         }
-        img.className = "selected";
+        _img.className = "selected";
         htmlImgs.forEach(pic => {
-            if (pic != img) {
+            if (pic != _img) {
                 pic.classList.remove("selected");
             }
         });
-        console.log(bild.link);
+        console.log(_bild.link);
     }
     let btNext = document.getElementById("btWeiter");
     btNext.addEventListener("click", btNextClicked);
@@ -121,14 +121,14 @@ var P2_5;
         sessionStorage.setItem("actSite", actSite.toString());
         console.log("Back");
     }
-    function createContent(bilder) {
-        console.log(bilder);
+    function createContent(_bilder) {
+        console.log(_bilder);
         let imgContainer = document.getElementById("imgContainer");
         htmlImgs = [];
         while (imgContainer.firstChild) {
             imgContainer.firstChild.remove();
         }
-        bilder.forEach(bild => {
+        _bilder.forEach(bild => {
             let img = document.createElement("img");
             img.src = bild.link;
             htmlImgs.push(img);

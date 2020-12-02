@@ -42,10 +42,10 @@ namespace P2_5 {
         }
     }
 
-    export function getSelectedFromJSON(jsonStr: string): Selected {
-        console.log(jsonStr);
-        if (jsonStr != null) {
-            let json: Selected = JSON.parse(jsonStr);
+    export function getSelectedFromJSON(_jsonStr: string): Selected {
+        console.log(_jsonStr);
+        if (_jsonStr != null) {
+            let json: Selected = JSON.parse(_jsonStr);
             Object.keys(json).forEach(key => {
                 if (key == "top") {
                     let pic: Bild = json[key];
@@ -62,21 +62,21 @@ namespace P2_5 {
         return selected;
     }
 
-    function selectImage(img: HTMLImageElement, bild: Bild): void {
-        if (bild.typ == keyTop) {
-            selected.top = bild;
-        } else if (bild.typ == keyMiddle) {
-            selected.middle = bild;
-        } else if (bild.typ == keyBottom) {
-            selected.bottom = bild;
+    function selectImage(_img: HTMLImageElement, _bild: Bild): void {
+        if (_bild.typ == keyTop) {
+            selected.top = _bild;
+        } else if (_bild.typ == keyMiddle) {
+            selected.middle = _bild;
+        } else if (_bild.typ == keyBottom) {
+            selected.bottom = _bild;
         }
-        img.className = "selected";
+        _img.className = "selected";
         htmlImgs.forEach(pic => {
-            if (pic != img) {
+            if (pic != _img) {
                 pic.classList.remove("selected");
             }
         });
-        console.log(bild.link);
+        console.log(_bild.link);
     }
 
     let btNext: HTMLButtonElement = <HTMLButtonElement>document.getElementById("btWeiter");
@@ -100,7 +100,6 @@ namespace P2_5 {
                     createContent(allMiddle);
                 } else {
                     actSite--;
-
                 }
             } else if (actSite == keyBottom) {
                 if (selected.middle != undefined) {
@@ -133,14 +132,14 @@ namespace P2_5 {
         console.log("Back");
     }
 
-    function createContent(bilder: Bild[]): void {
-        console.log(bilder);
+    function createContent(_bilder: Bild[]): void {
+        console.log(_bilder);
         let imgContainer: HTMLDivElement = <HTMLDivElement>document.getElementById("imgContainer");
         htmlImgs = [];
         while (imgContainer.firstChild) {
             imgContainer.firstChild.remove();
         }
-        bilder.forEach(bild => {
+        _bilder.forEach(bild => {      
             let img: HTMLImageElement = document.createElement("img");
             img.src = bild.link;
             htmlImgs.push(img);

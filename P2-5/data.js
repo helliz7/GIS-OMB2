@@ -6,11 +6,11 @@ var P2_5;
     //     let jsonAlle: string = JSON.stringify(allBilder);
     //     return jsonAlle;
     // }
-    function createPicsFromJSON(jsonStr) {
+    function createPicsFromJSON(_jsonStr) {
         P2_5.allTop = [];
         P2_5.allMiddle = [];
         P2_5.allBottom = [];
-        let json = JSON.parse(jsonStr);
+        let json = JSON.parse(_jsonStr);
         Object.keys(json).forEach(key => {
             if (key == "allTop") {
                 P2_5.allTop = json[key];

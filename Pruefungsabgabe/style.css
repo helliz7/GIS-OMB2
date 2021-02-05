@@ -13,6 +13,10 @@ header {
     padding: 30px;
     background-color: green;
 }
+.tableImg {
+    max-height: 200px;
+    max-width: 200px;
+}
 
 #logo {
     position: fixed;

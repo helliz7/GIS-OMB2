@@ -2,13 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Mongo = require("mongodb");
-const url = require("url");
-let urlAsta = "verwaltung.html";
 let commandAlleArtikel = "alleArtikel";
 let commandStudentReservieren = "studentReservieren";
 let commandAstaStatusAendern = "astaStatusAendern";
-let statusFrei = 0;
-let statusReserviert = 1;
+// let statusFrei: number = 0;
+// let statusReserviert: number = 1;
 // let statusAusgeliehen: number = 2;
 let dbArtikelCollection = null;
 let dbArtikelName = "Artikel";
@@ -60,21 +58,7 @@ function handleRequest(_request, _response) {
                         case commandAlleArtikel:
                             let alleProdukte = await getAlleProdukte();
                             if (alleProdukte) {
-                                let actUrl = url.parse(_request.url, true).pathname;
-                                if (actUrl != urlAsta) {
-                                    let updatedAlleProdukte;
-                                    alleProdukte.forEach(produkt => {
-                                        if (produkt.ausleihName && produkt.ausleihEmail) {
-                                            delete produkt.ausleihName;
-                                            delete produkt.ausleihEmail;
-                                        }
-                                        updatedAlleProdukte.push(produkt);
-                                    });
-                                    response = { status: 0, produkt: updatedAlleProdukte };
-                                }
-                                else {
-                                    response = { status: 0, produkt: alleProdukte };
-                                }
+                                response = { status: 0, produkt: alleProdukte };
                             }
                             else {
                                 response = { status: -1, nachricht: "Alle Produkte holen fehlgeschlagen" };
@@ -82,7 +66,8 @@ function handleRequest(_request, _response) {
                             break;
                         case commandStudentReservieren:
                             if (requestData.artikelIDs && requestData.email && requestData.name) {
-                                if (await statusAendern(requestData.artikelIDs, statusReserviert, requestData.name, requestData.email)) {
+                                requestData.status = 1;
+                                if (await statusAendern(requestData)) {
                                     response = { status: 0, nachricht: "Statusänderung erfolgreich" };
                                 }
                                 else {
@@ -94,22 +79,17 @@ function handleRequest(_request, _response) {
                             }
                             break;
                         case commandAstaStatusAendern:
-                            let actUrl = url.parse(_request.url, true).pathname;
-                            if (actUrl == urlAsta) {
-                                if (requestData.artikelIDs && requestData.email && requestData.name && requestData.status) {
-                                    if (await statusAendern(requestData.artikelIDs, requestData.status, requestData.name, requestData.email)) {
-                                        response = { status: 0, nachricht: "Statusänderung erfolgreich" };
-                                    }
-                                    else {
-                                        response = { status: -1, nachricht: "Statusänderung fehlgeschlagen" };
-                                    }
+                            // Wieso geht das nur, wenn status zu string konvertiert wird?
+                            if (requestData.artikelIDs && requestData.status.toString()) {
+                                if (await statusAendern(requestData)) {
+                                    response = { status: 0, nachricht: "Statusänderung erfolgreich" };
                                 }
                                 else {
-                                    response = { status: -1, nachricht: "Zu wenig Parameter" };
+                                    response = { status: -1, nachricht: "Statusänderung fehlgeschlagen" };
                                 }
                             }
                             else {
-                                response = { status: -1, nachricht: "Befehl von falscher Seite" };
+                                response = { status: -1, nachricht: "Zu wenig Parameter" };
                             }
                             break;
                         default:
@@ -127,6 +107,7 @@ function handleRequest(_request, _response) {
             _response.setHeader("Access-Control-Allow-Origin", "*");
             _response.setHeader("content-type", "application/json");
             _response.write(JSON.stringify(response));
+            _response.end(); // Antwort schliessen
         });
     }
 }
@@ -134,28 +115,34 @@ async function getAlleProdukte() {
     let produkte = await dbArtikelCollection.find().toArray();
     return produkte;
 }
-async function statusAendern(produkteIDs, status, name, email) {
+async function statusAendern(requestData) {
     let erfolgreich = true;
-    for (let index = 0; index < produkteIDs.length; index++) {
-        let produktId = produkteIDs[index];
-        if (status != statusFrei) {
-            if (name && email) {
+    let produkteIDs = requestData.artikelIDs;
+    let status = 0;
+    if (requestData.status) {
+        status = requestData.status;
+    }
+    if (requestData.status == 0) {
+        for (let index = 0; index < produkteIDs.length; index++) {
+            let produktId = produkteIDs[index];
+            let updated = await dbArtikelCollection.findOneAndUpdate({ _id: new Mongo.ObjectID(produktId) }, { $set: { zustand: status, ausleihName: "", ausleihEmail: "" } }, { returnOriginal: false });
+            if (updated.ok != 1) {
+                erfolgreich = false;
+                break;
+            }
+        }
+    }
+    else {
+        if (requestData.email && requestData.name) {
+            let name = requestData.name;
+            let email = requestData.email;
+            for (let index = 0; index < produkteIDs.length; index++) {
+                let produktId = produkteIDs[index];
                 let updated = await dbArtikelCollection.findOneAndUpdate({ _id: new Mongo.ObjectID(produktId) }, { $set: { zustand: status, ausleihName: name, ausleihEmail: email } }, { returnOriginal: false });
                 if (updated.ok != 1) {
                     erfolgreich = false;
                     break;
                 }
-            }
-            else {
-                erfolgreich = false;
-                break;
-            }
-        }
-        else {
-            let updated = await dbArtikelCollection.findOneAndUpdate({ _id: new Mongo.ObjectID(produktId) }, { $set: { zustand: status } }, { returnOriginal: false });
-            if (updated.ok != 1) {
-                erfolgreich = false;
-                break;
             }
         }
     }

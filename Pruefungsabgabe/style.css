@@ -12,6 +12,7 @@ header {
     right: 0px;
     padding: 30px;
     background-color: green;
+    z-index: 1000;
 }
 .tableImg {
     max-height: 200px;

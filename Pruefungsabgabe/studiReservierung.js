@@ -6,7 +6,7 @@ var Pruefungsabgabe;
     let btSend = document.getElementById("send");
     btSend.addEventListener("click", borrow);
     let pCount = document.getElementById("productschoice");
-    pCount.textContent = alleProdukte.length + "";
+    pCount.textContent = ausleihe.length + "";
     let pSum = document.getElementById("sum");
     pSum.textContent = (Pruefungsabgabe.warenkorbWertAusrechnen(ausleihe, alleProdukte) / 100) + "€";
     async function borrow() {

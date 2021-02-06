@@ -7,7 +7,7 @@ namespace Pruefungsabgabe {
     btSend.addEventListener("click", borrow);
 
     let pCount: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("productschoice");
-    pCount.textContent = alleProdukte.length + "";
+    pCount.textContent = ausleihe.length + "";
     let pSum: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("sum");
     pSum.textContent = (warenkorbWertAusrechnen(ausleihe, alleProdukte) / 100) + "€";
 

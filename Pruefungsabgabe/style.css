@@ -15,8 +15,8 @@ header {
     z-index: 1000;
 }
 .tableImg {
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 159px;
+    max-width: 150px;
 }
 
 #logo {
@@ -34,7 +34,7 @@ header {
 #receipt {
     position: fixed;
     right: 2px;
-    width: 170px;
+    width: 160px;
     top: 255px;
     border: 1px solid black;
     padding: 5px;

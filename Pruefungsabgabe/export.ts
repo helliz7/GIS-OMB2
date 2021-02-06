@@ -1,7 +1,7 @@
 namespace Pruefungsabgabe {
     
-    let serverUrl: string = "http://localhost:8100";
-    // let serverUrl: string = "https://hfusose.herokuapp.com";
+    // let serverUrl: string = "http://localhost:8100";
+    let serverUrl: string = "https://hfusose.herokuapp.com";
 
     export interface RequestData {
         command: string;

@@ -9,19 +9,44 @@ var Pruefungsabgabe;
     let ausleihe = [];
     showAllUsers();
     async function showAllUsers() {
-        let rowCount = table.rows.length; // Wie viele Reihen gibt es
-        // start bei 1 weil Header nicht geloescht werden soll
-        for (let i = 1; i < rowCount; i++) {
-            // Losche die Reihe
-            table.deleteRow(i);
-        }
         htmlServerAnswer.textContent = "";
-        let price = Pruefungsabgabe.warenkorbWertAusrechnen(ausleihe, alleProdukte);
-        let pPriceField = document.getElementById("priceField");
-        pPriceField.textContent = (price / 100) + "€";
         let request = { command: "alleArtikel" };
         let answer = await Pruefungsabgabe.postToServer(request);
         if (answer.status == 0) {
+            // Solange Tabelle Elemente (Kinder / Reihen hat)
+            while (table.hasChildNodes()) {
+                // Loesche die erste Reihe / das erste Kind
+                table.removeChild(table.firstChild);
+            }
+            let headerRow = table.insertRow();
+            let headerCell1 = headerRow.insertCell();
+            let pHeaderCell1 = document.createElement("p");
+            pHeaderCell1.className = "tableheader";
+            pHeaderCell1.textContent = "Bild";
+            headerCell1.appendChild(pHeaderCell1);
+            let headerCell2 = headerRow.insertCell();
+            let pHeaderCell2 = document.createElement("p");
+            pHeaderCell2.className = "tableheader";
+            pHeaderCell2.textContent = "Bezeichnung";
+            headerCell2.appendChild(pHeaderCell2);
+            let headerCell3 = headerRow.insertCell();
+            let pHeaderCell3 = document.createElement("p");
+            pHeaderCell3.className = "tableheader";
+            pHeaderCell3.textContent = "Beschreibung";
+            headerCell3.appendChild(pHeaderCell3);
+            let headerCell4 = headerRow.insertCell();
+            let pHeaderCell4 = document.createElement("p");
+            pHeaderCell4.className = "tableheader";
+            pHeaderCell4.textContent = "Status";
+            headerCell4.appendChild(pHeaderCell4);
+            let headerCell5 = headerRow.insertCell();
+            let pHeaderCell5 = document.createElement("p");
+            pHeaderCell5.className = "tableheader";
+            pHeaderCell5.textContent = "Gebühr";
+            headerCell5.appendChild(pHeaderCell5);
+            let price = Pruefungsabgabe.warenkorbWertAusrechnen(ausleihe, alleProdukte);
+            let pPriceField = document.getElementById("priceField");
+            pPriceField.textContent = (price / 100) + "€";
             alleProdukte = answer.produkt;
             for (let i = 0; i < alleProdukte.length; i++) {
                 let produkt = alleProdukte[i];
@@ -73,9 +98,11 @@ var Pruefungsabgabe;
                     let btnBorrowUnborrow = document.createElement("button");
                     if (Pruefungsabgabe.produktInAusleihe(produkt._id, ausleihe)) {
                         btnBorrowUnborrow.textContent = "Entfernen";
+                        row.className = "activeTableRow";
                     }
                     else {
                         btnBorrowUnborrow.textContent = "Hinzufügen";
+                        row.className = "";
                     }
                     btnBorrowUnborrow.addEventListener("click", function () {
                         if (Pruefungsabgabe.produktInAusleihe(produkt._id, ausleihe)) {

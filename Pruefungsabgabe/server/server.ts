@@ -10,7 +10,7 @@ let commandAstaStatusAendern: string = "astaStatusAendern";
 // let statusAusgeliehen: number = 2;
 
 let dbArtikelCollection: Mongo.Collection = null;
-let dbArtikelName: string = "Artikel";
+let dbArtikelCollectionName: string = "Artikel";
 let databaseName: string = "AstaVerleih";
 
 let dbServerUserName: string = "astaUser";
@@ -48,7 +48,7 @@ async function connectToDatabase(): Promise<void> {
     let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true }; // Vorgegeben, danach suchen
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(databaseUrl, options);
     await mongoClient.connect();
-    dbArtikelCollection = mongoClient.db(databaseName).collection(dbArtikelName);
+    dbArtikelCollection = mongoClient.db(databaseName).collection(dbArtikelCollectionName);
     console.log("Database connection", dbArtikelCollection != undefined);
 }
 
@@ -67,7 +67,7 @@ interface Response {
 }
 
 interface Produkt {
-    _id?: string;
+    _id: string;
     zustand: number;
     ausleihName?: string;
     ausleihEmail?: string;
@@ -159,11 +159,13 @@ async function statusAendern(requestData: RequestData): Promise<boolean> {
     if (requestData.status == 0) {
         for (let index: number = 0; index < produkteIDs.length; index++) {
             let produktId: string = produkteIDs[index];
+            // https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#findOneAndUpdate
             let updated: Mongo.FindAndModifyWriteOpResultObject<Produkt> = await dbArtikelCollection.findOneAndUpdate(
                 { _id: new Mongo.ObjectID(produktId) },
                 { $set: { zustand: status, ausleihName: "", ausleihEmail: "" } },
                 { returnOriginal: false }
             );
+            // https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#~findAndModifyWriteOpResult
             if (updated.ok != 1) {
                 erfolgreich = false;
                 break;

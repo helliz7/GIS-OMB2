@@ -10,20 +10,53 @@ namespace Pruefungsabgabe {
     showAllUsers();
 
     async function showAllUsers(): Promise<void> {
-        let rowCount: number = table.rows.length; // Wie viele Reihen gibt es
-        // start bei 1 weil Header nicht geloescht werden soll
-        for (let i: number = 1; i < rowCount; i++) {
-            // Losche die Reihe
-            table.deleteRow(i);
-        }
         htmlServerAnswer.textContent = "";
-        let price: number = warenkorbWertAusrechnen(ausleihe, alleProdukte);
-        let pPriceField: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("priceField");
-        pPriceField.textContent = (price / 100) + "€";
 
         let request: RequestData = { command: "alleArtikel" };
         let answer: ResponseFromServer = await postToServer(request);
         if (answer.status == 0) {
+            // Solange Tabelle Elemente (Kinder / Reihen hat)
+            while (table.hasChildNodes()) {
+                // Loesche die erste Reihe / das erste Kind
+                table.removeChild(table.firstChild);
+            }
+            
+            let headerRow: HTMLTableRowElement = table.insertRow();
+
+            let headerCell1: HTMLTableDataCellElement = headerRow.insertCell();
+            let pHeaderCell1: HTMLParagraphElement = document.createElement("p");
+            pHeaderCell1.className = "tableheader";
+            pHeaderCell1.textContent = "Bild";
+            headerCell1.appendChild(pHeaderCell1);
+
+            let headerCell2: HTMLTableDataCellElement = headerRow.insertCell();
+            let pHeaderCell2: HTMLParagraphElement = document.createElement("p");
+            pHeaderCell2.className = "tableheader";
+            pHeaderCell2.textContent = "Bezeichnung";
+            headerCell2.appendChild(pHeaderCell2);
+
+            let headerCell3: HTMLTableDataCellElement = headerRow.insertCell();
+            let pHeaderCell3: HTMLParagraphElement = document.createElement("p");
+            pHeaderCell3.className = "tableheader";
+            pHeaderCell3.textContent = "Beschreibung";
+            headerCell3.appendChild(pHeaderCell3);
+
+            let headerCell4: HTMLTableDataCellElement = headerRow.insertCell();
+            let pHeaderCell4: HTMLParagraphElement = document.createElement("p");
+            pHeaderCell4.className = "tableheader";
+            pHeaderCell4.textContent = "Status";
+            headerCell4.appendChild(pHeaderCell4);
+
+            let headerCell5: HTMLTableDataCellElement = headerRow.insertCell();
+            let pHeaderCell5: HTMLParagraphElement = document.createElement("p");
+            pHeaderCell5.className = "tableheader";
+            pHeaderCell5.textContent = "Gebühr";
+            headerCell5.appendChild(pHeaderCell5);
+
+            let price: number = warenkorbWertAusrechnen(ausleihe, alleProdukte);
+            let pPriceField: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("priceField");
+            pPriceField.textContent = (price / 100) + "€";
+
             alleProdukte = answer.produkt;
             for (let i: number = 0; i < alleProdukte.length; i++) {
                 let produkt: Produkt = alleProdukte[i];
@@ -81,8 +114,10 @@ namespace Pruefungsabgabe {
                     let btnBorrowUnborrow: HTMLButtonElement = document.createElement("button");
                     if (produktInAusleihe(produkt._id, ausleihe)) {
                         btnBorrowUnborrow.textContent = "Entfernen";
+                        row.className = "activeTableRow";
                     } else {
                         btnBorrowUnborrow.textContent = "Hinzufügen";
+                        row.className = "";
                     }
                     btnBorrowUnborrow.addEventListener("click", function (): void {
                         if (produktInAusleihe(produkt._id, ausleihe)) {

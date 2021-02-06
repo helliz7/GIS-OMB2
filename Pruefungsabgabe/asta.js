@@ -5,12 +5,42 @@ var Pruefungsabgabe;
     let alleProdukte = [];
     showAllUsers();
     async function showAllUsers() {
-        let rowCount = table.rows.length; // Wie viele Reihen gibt es
-        // start bei 1 weil Header nicht geloescht werden soll
-        for (let i = 1; i < rowCount; i++) {
-            // Losche die Reihe
-            table.deleteRow(i);
+        // Solange Tabelle Elemente (Kinder / Reihen hat)
+        while (table.hasChildNodes()) {
+            // Loesche die erste Reihe / das erste Kind
+            table.removeChild(table.firstChild);
         }
+        let headerRow = table.insertRow();
+        let headerCell1 = headerRow.insertCell();
+        let pHeaderCell1 = document.createElement("p");
+        pHeaderCell1.className = "tableheader";
+        pHeaderCell1.textContent = "Bild";
+        headerCell1.appendChild(pHeaderCell1);
+        let headerCell2 = headerRow.insertCell();
+        let pHeaderCell2 = document.createElement("p");
+        pHeaderCell2.className = "tableheader";
+        pHeaderCell2.textContent = "Bezeichnung";
+        headerCell2.appendChild(pHeaderCell2);
+        let headerCell3 = headerRow.insertCell();
+        let pHeaderCell3 = document.createElement("p");
+        pHeaderCell3.className = "tableheader";
+        pHeaderCell3.textContent = "Beschreibung";
+        headerCell3.appendChild(pHeaderCell3);
+        let headerCell4 = headerRow.insertCell();
+        let pHeaderCell4 = document.createElement("p");
+        pHeaderCell4.className = "tableheader";
+        pHeaderCell4.textContent = "Status";
+        headerCell4.appendChild(pHeaderCell4);
+        let headerCell5 = headerRow.insertCell();
+        let pHeaderCell5 = document.createElement("p");
+        pHeaderCell5.className = "tableheader";
+        pHeaderCell5.textContent = "Gebühr";
+        headerCell5.appendChild(pHeaderCell5);
+        let headerCell6 = headerRow.insertCell();
+        let pHeaderCell6 = document.createElement("p");
+        pHeaderCell6.className = "tableheader";
+        pHeaderCell6.textContent = "Name";
+        headerCell6.appendChild(pHeaderCell6);
         let request = { command: "alleArtikel" };
         let answer = await Pruefungsabgabe.postToServer(request);
         if (answer.status == 0) {

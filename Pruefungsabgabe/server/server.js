@@ -9,7 +9,7 @@ let commandAstaStatusAendern = "astaStatusAendern";
 // let statusReserviert: number = 1;
 // let statusAusgeliehen: number = 2;
 let dbArtikelCollection = null;
-let dbArtikelName = "Artikel";
+let dbArtikelCollectionName = "Artikel";
 let databaseName = "AstaVerleih";
 let dbServerUserName = "astaUser";
 let dbServerPW = "astaUserPW";
@@ -40,7 +40,7 @@ async function connectToDatabase() {
     let options = { useNewUrlParser: true, useUnifiedTopology: true }; // Vorgegeben, danach suchen
     let mongoClient = new Mongo.MongoClient(databaseUrl, options);
     await mongoClient.connect();
-    dbArtikelCollection = mongoClient.db(databaseName).collection(dbArtikelName);
+    dbArtikelCollection = mongoClient.db(databaseName).collection(dbArtikelCollectionName);
     console.log("Database connection", dbArtikelCollection != undefined);
 }
 function handleRequest(_request, _response) {
@@ -125,7 +125,9 @@ async function statusAendern(requestData) {
     if (requestData.status == 0) {
         for (let index = 0; index < produkteIDs.length; index++) {
             let produktId = produkteIDs[index];
+            // https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#findOneAndUpdate
             let updated = await dbArtikelCollection.findOneAndUpdate({ _id: new Mongo.ObjectID(produktId) }, { $set: { zustand: status, ausleihName: "", ausleihEmail: "" } }, { returnOriginal: false });
+            // https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#~findAndModifyWriteOpResult
             if (updated.ok != 1) {
                 erfolgreich = false;
                 break;

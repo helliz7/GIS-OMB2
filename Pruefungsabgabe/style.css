@@ -46,12 +46,12 @@ header {
     background-color: lightgray;
 }
 
-#tableheader {
+.tableheader {
     font-weight: bold;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
+.activeTableRow {
+    background-color: lightgreen;
 }
 
 #nummer {

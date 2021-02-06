@@ -1,8 +1,7 @@
 "use strict";
 var Pruefungsabgabe;
 (function (Pruefungsabgabe) {
-    // let serverUrl: string = "http://localhost:8100";
-    let serverUrl = "https://hfusose.herokuapp.com";
+    let serverUrl = "http://localhost:8100";
     async function postToServer(requestData) {
         let requestDataString = JSON.stringify(requestData);
         let response = await fetch(serverUrl, {
@@ -40,7 +39,8 @@ var Pruefungsabgabe;
             let produktID = ausleihe[i];
             let produkt = getProductFromID(produktID, alleProdukte);
             if (produkt != null) {
-                price = price + produkt.gebuehr;
+                let gebuehr = produkt.gebuehr;
+                price = price + gebuehr;
             }
         }
         return price;
